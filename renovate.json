@@ -9,9 +9,9 @@
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": ["/^VERSION$/"],
+      "managerFilePatterns": ["/^sdkcraft.yaml$/"],
       "matchStrings": [
-        "(?<currentValue>[0-9.]+(?:-[a-zA-Z0-9.]+)?)"
+        "version: \"(?<currentValue>[0-9.]+(?:-[a-zA-Z0-9.]+)?)\""
       ],
       "depNameTemplate": "zephyrproject-rtos/sdk-ng",
       "datasourceTemplate": "github-releases",
