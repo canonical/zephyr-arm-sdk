@@ -1,0 +1,18 @@
+summary: Verify arm-zephyr-eabi cross-compiler binaries are present in the SDK
+
+prepare: |
+  envsubst '${BASE}' <workshop.yaml.in >workshop.yaml
+  workshop launch
+
+restore: |
+  workshop remove || true
+
+execute: |
+  # The toolchain is installed as a snap; verify key compiler binaries exist
+  # and are executable at the expected path.
+  workshop exec -- test -x /snap/try-zephyr-arm/current/bin/arm-zephyr-eabi-gcc
+  workshop exec -- test -x /snap/try-zephyr-arm/current/bin/arm-zephyr-eabi-ld
+  workshop exec -- /snap/try-zephyr-arm/current/bin/arm-zephyr-eabi-gcc --version
+
+debug: |
+  workshop exec -- ls /snap/try-zephyr-arm/current/bin/ | head -20 || true
