@@ -20,4 +20,3 @@ parts:
     plugin: dump
     source: https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v$CRAFT_PROJECT_VERSION/toolchain_linux-x86_64_arm-zephyr-eabi.tar.xz
     source-type: tar
-    source-subdir: arm-zephyr-eabi
